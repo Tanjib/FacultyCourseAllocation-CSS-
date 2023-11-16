@@ -1,0 +1,117 @@
+DB:
+
+Course:
+	1. courseId
+	2. courseName
+	3. Section
+	4. Time
+	5. Day
+	6. Credit
+
+Faculty:
+	1. Name
+	2. Id
+	3. Email
+	4. priorityCourses
+	5. prioritytime
+	6. Password
+	7. Type
+	8. Picture
+
+Admin: 
+	1. Name
+	2. Id
+	3. Email
+	4. Password
+	5. Type
+	6. Picture
+
+
+3NF:
+	
+Table 1: department
+• DepartmentName 
+
+Table 2: course
+• CourseID
+• CourseName
+• DepartmentName 
+• Credit
+
+Table 3: section
+• SectionID
+• CourseID 
+• Sec
+• startTime
+• endTime
+• Day
+
+Table 4: faculty
+• FacultyID 
+• FacultyName
+• Email
+• Picture
+
+Table 5: prioritycourses
+• FacultyID 
+• CourseID 
+
+Table 6: prioritytime
+• FacultyID 
+• Day
+• startTime
+• endTime
+
+Table 7: admin
+• AdminID (Primary Key)
+• AdminName
+• Email
+• Picture
+
+Table 8: userinfo
+• ID
+• Password
+• Type
+
+
+
+
+Psuesdocode:
+
+
+
+	Reset assignments for all sections -> FacultyID = null in section table
+	Get the list of all faculty members
+	faculty info in LOOP:
+	{
+		if total hours of the faculty is <=16
+		{
+			check section availability -> faculty not assigned
+			if (available)
+			{
+				if (PriorityTimeAvailable && hasPriorityCourse && has no Course time Clashes)
+				{
+					Assign this section to the faculty
+				}
+				else if (hasPriorityCourse && has no Course time Clashes)
+				{
+					Assign this section to the faculty
+				}
+			}
+		}
+	}
+
+	faculty info in LOOP:
+	{
+		if total hours of the faculty is <=16
+		{
+			check section availability -> faculty not assigned
+			if (available)
+			{
+				if (has no Course time Clashes)
+				{
+					Assign this section to the faculty
+				}
+			}
+		}
+	}
